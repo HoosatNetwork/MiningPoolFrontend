@@ -68,6 +68,7 @@ Add `.png` icons to `img/icon/` and convert them using `convert.bash` to `img/we
 
 Replace the following placeholder strings in the source code:
 
+- Change the `api_domain` variable in `src/api.js` to your Miningcore API URL (e.g., "https://your-api-domain.com").
 - `DOMAIN_ADDRESS_HERE`
 - `EMAIL_ADDRESS_HERE`
 - `DISCORD_LINK_HERE`
