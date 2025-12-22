@@ -1,0 +1,768 @@
+:root {
+  --charcoal: #293234;
+  --ateneo-blue: #342B29;
+  --blue-sapphire: #293234;
+  --frost: #FCFBFC;
+  --powder: #FBFCFA;
+  --lead: #3F3F4E;  
+  --cloud: #C5C6D0
+}
+html, body {
+  height: 100%;
+  margin: 0;  
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--frost);
+  color: var(--frost);
+  font-family: "Roboto", serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-variation-settings:
+      "wdth" 75;
+}
+
+a {
+  color: inherit;  /* Links inherit text color */
+  text-decoration: none;  /* Remove underlines */
+}
+
+header {
+  position: relative;
+  background-color: var(--ateneo-blue);
+  padding: 1rem;
+  padding: 20px;
+  padding-bottom: 42px;
+}
+
+.header-subcontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+
+.header-subcontainer .logo-and-name {
+  display: flex;
+}
+
+.header-subcontainer .logo-and-name h1 {
+  color: var(--powder);
+  padding-top: 18px;
+  padding-left: 5px;
+}
+
+.header-subcontainer .logo-and-name .logo {
+  max-width: 120px;
+  max-height: 120px;
+}
+
+.header-subcontainer nav {
+  display: flex;
+  gap: 1rem;
+  max-width: 80%;
+}
+
+.header-subcontainer nav a {
+  color: var(--frost);
+  text-decoration: none;
+  font-size: 2rem;
+  transition: color 0.3s;
+}
+
+.header-subcontainer nav a:hover {
+  color: var(--blue-sapphire);
+}
+
+header.gradient-border::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 16px; /* Adjust the thickness of the gradient border */
+  background: linear-gradient(to bottom, var(--ateneo-blue), var(--frost)); /* Gradient colors */
+}
+
+.hero {
+  background-color: var(--frost);
+  color: var(--blue-sapphire);
+  text-align: center;
+  padding: 2rem;
+  border: 2px solid var(--blue-sapphire);
+  border-radius: 10px;
+  max-width: 80%;
+  margin: 2rem auto;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin: 0 0 2rem;
+}
+
+.hero button {
+  background-color: var(--baby-blue);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.hero button:hover {
+  background-color: var(--blue-sapphire);
+}
+
+.hero .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.hero .card {
+  color: var(--frost);
+  background-color: var(--blue-sapphire);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero .subcard {  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  text-align: left;
+  color: var(--frost);
+  background-color: var(--blue-sapphire);
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero .card .label {
+  color: var(--frost);
+}
+
+.hero .subcard .label {
+  color: var(--frost);
+}
+
+.hero .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.content {
+  padding: 2rem;
+  background-color: var(--frost);
+  border: 2px solid var(--ateneo-blue);
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 80%
+}
+
+.content h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 1rem;
+  color: var(--ateneo-blue);
+}
+
+.content .pool-type-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  width: fit-content;
+  margin: 2rem auto;
+}
+
+.content .pool-type-buttons button {
+  width: 200px;
+}
+
+button {
+  background-color: var(--ateneo-blue);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--ateneo-blue);
+}
+
+.navbar {
+  max-width: 80%;
+  margin: 0 auto; 
+}
+
+/* Navigation list styling */
+.nav-list {
+  display: flex; 
+  justify-content: center; 
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+/* Navigation item styling */
+.nav-list li {
+  display: inline-block;
+}
+
+/* Button styling */
+.nav-button {
+  background-color: var(--ateneo-blue); /* Dark button background */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 5px;
+  min-width: 250px;
+}
+
+/* Hover effect for buttons */
+.nav-button:hover {
+  background-color: var(--ateneo-blue); /* Change background color on hover */
+}
+
+/* Hover effect */
+.nav-list a:hover {
+  color: var(--blue-sapphire); /* Change color on hover */
+}
+
+.table-content {
+  padding: 2rem;
+  background-color: var(--frost);
+  border: 2px solid var(--ateneo-blue);
+  border-radius: 10px;
+  width: 80%;
+  margin: 1rem auto;
+}
+
+.table-content h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 0 0 1rem;
+}
+
+.table-content .miner-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.table-content .miner-card {
+  display: grid;
+  grid-template-columns: 3fr 120px 120px;
+  gap: 15px;  
+  background-color: var(--blue-sapphire);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.table-content .worker-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.table-content .worker-card {
+  display: grid;
+  grid-template-columns: 3fr 120px 120px;
+  gap: 15px;  
+  background-color: var(--blue-sapphire);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.table-content .miner-blocks-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.table-content .miner-blocks-card {
+  display: grid;
+  grid-template-columns: 3fr 120px 120px;
+  gap: 15px;  
+  background-color: var(--blue-sapphire);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.table-content .miner-payments-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.table-content .miner-payments-card {
+  display: grid;
+  grid-template-columns:  150px 3fr 120px;
+  gap: 15px;  
+  background-color: var(--blue-sapphire);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+@media (max-width: 768px) {
+  .table-content .miner-card {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+  .table-content .miner-blocks-card {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+  .table-content .miner-payments-card {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+}
+
+@media (max-width: 512px) {
+  .table-content .worker-card {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+}
+
+.table-content .miner-card .miner-address {
+  overflow: hidden;  
+  text-align: left;
+}
+
+.table-content .worker-card .worker-name {
+  overflow: hidden;  
+  text-align: left;
+}
+
+.table-content .miner-payments-card .miner-payments-created {
+  overflow: hidden;  
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table-content .miner-payments-card .miner-payments-transaction {
+  overflow: hidden;
+}
+
+
+.table-content .block-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.table-content .block-card {
+  display: grid;
+  grid-template-columns: 20px 120px 1fr 1fr 120px 120px 120px;
+  gap: 15px;  
+  background-color: var(--blue-sapphire);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.table-content .miner-block-card {
+  display: grid;
+  grid-template-columns: 120px 1fr 1fr 120px 120px 120px;
+  gap: 15px;  
+  background-color: var(--blue-sapphire);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+@media (max-width: 768px) {
+  .table-content .block-card {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+  .table-content .miner-block-card {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+}
+
+.table-content .block-card .block-height {
+  text-align: left;
+}
+.table-content .block-card .block-hash {
+  overflow: hidden;  
+  text-align: left;
+}
+
+.table-content .block-card .block-miner {
+  overflow: hidden;  
+  text-align: left;
+}
+
+.table-content .block-card .block-status {
+  text-align: left;
+}
+
+.table-content .block-card .block-reward {
+  text-align: left;
+}
+
+.table-content .block-card .block-time {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.table-content .miner-block-card .block-height {
+  text-align: left;
+}
+.table-content .miner-block-card .block-hash {
+  overflow: hidden;  
+  text-align: left;
+}
+
+.table-content .miner-block-card .block-miner {
+  overflow: hidden;  
+  text-align: left;
+}
+
+.table-content .miner-block-card .block-status {
+  text-align: left;
+}
+
+.table-content .miner-block-card .block-reward {
+  text-align: left;
+}
+
+.table-content .miner-block-card .block-time {
+  text-align: right;
+  white-space: nowrap;
+}
+
+
+.pool-address-card {
+  margin-bottom: 2rem;
+}
+
+
+.table-content .payments-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.table-content .payments-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 120px 120px;
+  gap: 15px;  
+  background-color: var(--blue-sapphire);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.table-content .payments-card .payments-address {
+  overflow: hidden;  
+  text-align: left;
+}
+
+.table-content .payments-card .payments-transaction  {
+  overflow: hidden;  
+  text-align: left;
+}
+
+.table-content .payments-card .payments-time {
+  text-align: right;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .table-content .payments-card {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+  }
+}
+
+.table-content .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.content .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.content .card {
+  background-color: var(--blue-sapphire);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.content .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.content .card h1 {
+  margin-bottom: 0.5rem;
+  color: var(--frost);
+}
+
+.content .card p {
+  font-size: 0.9rem;
+  color: var(--frost);
+}
+
+
+.content .card .key {
+  font-weight: bold;
+  color: var(--ateneo-blue);
+}
+
+.content .card .value {
+  color: var(--baby-blue);
+}
+
+.content .card .status {
+  margin-top: 1rem;
+  font-size: 1.1em;
+  color: var(--blue-sapphire);
+}
+
+footer {
+  background-color: var(--frost);
+  border-top: 2px solid var(--ateneo-blue);
+  color: var(--ateneo-blue);
+  text-align: center;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer .socials {
+  font-size: 32px;
+}
+
+.wallet-input {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.wallet-input input {
+  padding: 0.75rem;
+  width: 80%;
+  max-width: 600px;
+  border: 2px solid var(--charcoal);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.wallet-input input:focus {
+  outline: none;
+  border-color: var(--blue-sapphire);
+}
+
+.miner-settings-card {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.miner-settings-card label {
+  display: block;
+  width: 165px;
+  padding-top: 12px;
+  text-align: right;
+}
+
+#success-threshold {
+  color: #12aa89;
+}
+
+#falure-threshold {
+  color: #c74a46;
+}
+
+.miner-settings-card-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.mt-5 {
+  margin-top: 5px;
+}
+
+.mt-25 {
+  margin-top: 25px;
+}
+
+.miner-settings-card-header {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.miner-settings-card input {
+  padding: 0.75rem;
+  width: 80%;
+  max-width: 600px;
+  border: 2px solid var(--baby-blue);
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.miner-settings-card input:focus {
+  outline: none;
+  border-color: var(--blue-sapphire);
+}
+
+
+.pool-coin {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pool-coin::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  left: 0;
+  width: 100%;
+  height: 42px; /* Adjust the thickness of the gradient border */
+  background: linear-gradient(to top, var(--blue-sapphire), var(--frost)); /* Gradient colors */
+}
+
+.pool-coin-header {
+  position: relative;
+  height: 50px;
+  grid-column: span 3;
+  text-align: center;
+  white-space: nowrap;
+}
+.pool-coin-header h1 {
+  padding-left: 80px;
+  text-align: left;
+  margin-top: 12px; 
+}
+
+.pool-coin-header .img {
+  position: absolute;
+  z-index: 20;
+  top: -50px;
+  left: -36px;
+  width: 100px;
+  height: 100px;
+  border-radius: 5px; /* Optional: Adds rounded corners to the image */
+}
+
+.pool-coin-item {
+  color: var(--frost);
+  position: relative;
+  font-weight:lighter;
+  font-size: 14px;
+}
+
+.pool-coin-start-button {
+  position: relative;
+  grid-column: span 2;
+  padding-top: 15px;
+  width: 100%;
+}
+
+.pool-coin-item .label {
+  color: var(--frost);
+  font-weight: bold;
+  font-size: 12pt;
+  margin-bottom: 5px;
+}
+
+#miner-pools {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--blue-sapphire);
+  border-radius: 8px;
+  background-color: var(--frost);
+  color: var(--ateneo-blue);
+  outline: none;
+  transition: all 0.3s ease;
+  appearance: none; /* Remove default system styling */
+  cursor: pointer;
+  position: relative;
+}
+
+#miner-pools::after {
+  content: "▼";
+  position: absolute; 
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--blue-sapphire);
+  font-size: 1rem;
+  pointer-events: none;
+} 
+
+#miner-pools option {
+  background-color: var(--frost);
+  color: var(--ateneo-blue);
+  padding: 10px;
+}
+
+#miner-chart-container {
+  min-height: 600px;
+}
+
+#miner-statistics-address {
+  overflow: hidden;
+}
+
+.legal-links-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.legal-links-list > li {
+  cursor: pointer;
+}

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="MiningPool - Leading Cryptocurrency Mining Pool">
+    <meta name="description" content="Join MiningPool, a secure and reliable cryptocurrency mining pool offering high rewards, low fees, and 24/7 support for miners worldwide.">
+    <meta name="keywords" content="MiningPool, cryptocurrency mining pool, Bitcoin mining, Ethereum mining, mining rewards, crypto pool, mining fees, mining software, mining support, pool for miners">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="MiningPool - Leading Cryptocurrency Mining Pool">
+    <meta property="og:description" content="Join MiningPool, a secure and reliable cryptocurrency mining pool offering high rewards, low fees, and 24/7 support for miners worldwide.">
+    <meta property="og:image" content="./img/webp/default.webp"> 
+    <meta property="og:url" content="DOMAIN_ADDDRESS_HERE">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MiningPool - Leading Cryptocurrency Mining Pool">
+    <meta name="twitter:description" content="Join MiningPool, a secure and reliable cryptocurrency mining pool offering high rewards, low fees, and 24/7 support for miners worldwide.">
+    <meta name="twitter:image" content="./img/webp/default.webp"> 
+    <meta name="twitter:site" content="@MiningPool">
+    <meta name="twitter:creator" content="@MiningPool">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="DOMAIN_ADDDRESS_HERE">
+    <title>MiningPool</title>
+    <script src="https://kit.fontawesome.com/047445586a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75,900;1,75,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./src/styles.css">
+    <script src="./src/api.js"></script>
+    <script src="./src/listed-coins.js"></script>
+    <script src="./src/router.js"></script>
+    <script src="./src/landing.js"></script>
+    <script src="./src/pool.js"></script>
+    <script src="./src/miner.js"></script>
+    <script src="./src/events.js"></script>
+</head>
+<body>
+
+    <header class="gradient-border">    
+        <div class="header-subcontainer">
+            <div class="logo-and-name">
+                <a href="/" aria-label="Home"></a><img class="logo" src="./img/webp/default.webp" alt="MiningPool"></h1>
+            </div>
+            <nav>
+                <a href="/" aria-label="Home">Home</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Landing-->
+    <section id="hero-section" class="hero">
+        <h1>Escape and Earn with MiningPool</h1>
+        <p>Relax with your mining, experience the perfect balance of comfort and crypto profitability.</p>
+        <div class="cards">
+            <div class="card">
+                <div class="label">Regular payouts every</div>
+                <div>20 minutes</div>
+            </div>
+            <div class="card">
+                <div class="label">Fees</div>
+                <div>0.5% - 1.5%</div>
+            </div>
+            <div class="card" title="This calculation requires pool coin to be listed in CoinGecko, to be included in the calculations.">
+                <div class="label">Paid to miners</div>
+                <div id="totalPaid">0 USD</div>
+            </div>
+            <div class="card">
+                <div class="label">Miners online</div>
+                <div id="connectedMiners"></div>
+            </div>
+        </div>
+    </section>
+    <section id="wallet-address-search-section" class="wallet-input">
+        <input type="text" id="wallet-address-search-input" placeholder="Your wallet address here">
+    </section>
+    <section id="pool-cards-section" class="content">
+        <h1><i class="fa-solid fa-cubes"></i></h1>
+        <div id="pool-type-buttons" class="pool-type-buttons">
+        </div>
+        <div id="pool-cards" class="cards">
+        </div>
+    </section>
+    <section id="about-section" class="content">
+        <div class="cards">
+            <div class="card">
+                <h1>Join the Future of Crypto Mining!</h1>
+                <p>Unlock your potential with our cutting-edge mining pool! Earn more, mine smarter, and be part of a community dedicated to growing together. Connect your miners today and start your mining journey with ease and efficiency.</p>
+            </div>
+            <div class="card">
+                <h1>Maximize Your Mining Profits!</h1>
+                <p>Get the most out of your crypto mining efforts. With our high-performance pool, enjoy low fees, quick payouts, and a network of miners to help you succeed. Start mining today and watch your earnings grow!</p>
+            </div>
+            <div class="card">
+                <h1>Power Your Crypto Dreams!</h1>
+                <p>Ready to mine like a pro? Join our pool for fast, secure, and profitable mining. Whether you're a beginner or a veteran, we offer the tools and support to help you succeed. Start mining now and turn your dreams into digital gold!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- pool -->
+    <nav id="pool-submenu" class="navbar" style="display: none;">
+        <ul class="nav-list">
+            <li><button id="open-connect-button" class="nav-button">Connect</button></li>
+            <li><button id="open-statistics-button" class="nav-button">Statistics</button></li>
+            <li><button id="open-miners-button" class="nav-button">Miners</button></li>
+            <li><button id="open-blocks-button" class="nav-button">Blocks</button></li>
+            <li><button id="open-payments-button" class="nav-button">Payments</button></li>
+        </ul>
+    </nav>
+    <section id="statistics" class="hero" style="display: none;">
+        <h1 id="statistics-header">Statistics</h1>
+        <div class="cards">
+            <div class="card">
+                <div class="label">Token</div>
+                <div id="statistics-token"></div>
+            </div>
+            <div class="card">
+                <div class="label">Chain Height</div>
+                <div id="statistics-chain-height"></div>
+            </div>
+            <div class="card">
+                <div class="label">Miners</div>
+                <div id="statistics-miners"></div>
+            </div>
+            <div class="card">
+                <div class="label">Last Pool Block</div>
+                <div id="statistics-last-blocks"></div>
+            </div>
+            <div class="card">
+                <div class="label">Pool Luck</div>
+                <div id="statistics-pool-luck"></div>
+            </div>
+            <div class="card">
+                <div class="label">Network difficulty</div>
+                <div id="statistics-network-difficulty"></div>
+            </div>
+            <div class="card">
+                <div class="label">Pool Hashrate</div>
+                <div id="statistics-pool-hashrate"></div>
+            </div>
+            <div class="card">
+                <div class="label">Network Hashrate</div>
+                <div id="statistics-network-hashrate"></div>
+            </div>
+            <div class="card">
+                <div class="label">Pool Fee</div>
+                <div id="statistics-pool-fee"></div>
+            </div>
+            <div class="card">
+                <div class="label">Total Paid</div>
+                <div id="statistics-total-paid"></div>
+            </div>
+            <div class="card">
+                <div class="label">Total Pool Blocks</div>
+                <div id="statistics-total-pool-blocks"></div>
+            </div>
+            <div class="card">
+                <div class="label">Total Confirmed Blocks</div>
+                <div id="statistics-total-confirmed-blocks"></div>
+            </div>
+            <div class="card">
+                <div class="label">Block Confirmations</div>
+                <div id="statistics-block-confirmations-percentage"></div>
+            </div>  
+            <div class="card">
+                <div class="label">Pending blocks</div>
+                <div id="statistics-pending-blocks"></div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="chart-container" class="content" style="display: none;">
+        <canvas id="hashrateChart"></canvas>
+    </section>
+
+    <section id="connect" class="hero" style="display: none;">
+        <h1 id="connect-header-address">Pool address</h1>
+        <div id="pool-address" class="pool-address-card">
+        </div>
+        <h1 id="connect-header-addresses">Stratums</h1>
+        <div id="connect-servers-table" class="cards">
+        </div>
+        <h1 id="connect-header-ports">Ports</h1>
+        <div id="connect-ports-table" class="cards">
+        </div>
+    </section>
+
+    <section id="miners" class="table-content" style="display: none;">
+        <h1 id="miners-header">Miners</h1>
+        <div id="miners-table" class="miner-cards">
+        </div>
+    </section>
+
+    <section id="blocks" class="table-content" style="display: none;">
+        <h1 id="blocks-header">Blocks</h1>
+        <div id="blocks-table" class="block-cards">
+        </div>
+    </section>
+
+    <section id="payments" class="table-content" style="display: none;">
+        <h1 id="payments-header">Payments</h1>
+        <div id="payments-table" class="payments-cards">
+        </div>
+    </section>
+
+    <!-- Miner -->
+    <section id="miner-statistics" class="hero" style="display: none;">
+        <h1 id="miner-statistics-header">Your statistics</h1>
+        <p id="miner-statistics-address"></p>
+        <div class="cards">
+            <div class="card">
+                <div class="label">Pool</div>
+                <div id="miner-statistics-pool">
+                </div>
+            </div>
+            <div class="card">
+                <div class="label">Pending Shares</div>
+                <div id="miner-statistics-pending-shares"></div>
+            </div>
+            <div class="card">
+                <div class="label">Pending Balance</div>
+                <div id="miner-statistics-pending-balance"></div>
+            </div>
+            <div class="card">
+                <div class="label">Pending Blocks</div>
+                <div id="miner-statistics-pending-blocks"></div>
+            </div>
+            <div class="card">
+                <div class="label">Confirmed Blocks</div>
+                <div id="miner-statistics-confirmed-blocks"></div>
+            </div>
+            <div class="card">
+                <div class="label">Total Paid</div>
+                <div id="miner-statistics-total-paid"></div>
+            </div>
+            <div class="card">
+                <div class="label">Paid Today</div>
+                <div id="miner-statistics-today-paid"></div>
+            </div>
+            <div class="card">
+                <div class="label">Last Payment</div>
+                <div id="miner-statistics-last-payment"></div>
+            </div>
+            <div class="card">
+                <div class="label">Miner Luck</div>
+                <div id="miner-statistics-miner-luck"></div>
+            </div>
+        </div>
+    </section>
+
+    <nav id="miner-submenu" class="navbar" style="display: none;">
+        <ul class="nav-list">
+            <li><button id="open-miner-statistics-button" class="nav-button">Graph</button></li>
+            <li><button id="open-miner-workers-button" class="nav-button">Workers</button></li>
+            <li><button id="open-miner-blocks-button" class="nav-button">Blocks</button></li>
+            <li><button id="open-miner-payments-button" class="nav-button">Payments</button></li>
+            <li><button id="open-miner-settings-button" class="nav-button">Settings</button></li>
+         </ul>
+    </nav>
+
+    <section id="miner-chart-container" class="content" style="display: none;">
+        <canvas id="minerHashrateChart"></canvas>
+    </section>
+
+
+    <section id="workers" class="table-content" style="display: none;">
+        <h1 id="workers-header">Workers</h1>
+        <div id="workers-table" class="worker-cards">
+        </div>
+    </section>
+
+
+    <section id="miner-blocks" class="table-content" style="display: none;">
+        <h1 id="miner-blocks-header">Blocks</h1>
+        <div id="miner-blocks-table" class="miner-blocks-cards">
+        </div>
+    </section>
+
+    <section id="miner-payments" class="table-content" style="display: none;">
+        <h1 id="miner-payments-header">Payments</h1>
+        <div id="miner-payments-table" class="miner-payments-cards">
+        </div>
+    </section>
+
+    <section id="miner-settings" class="table-content" style="display: none;">
+        <h1 id="miner-settings-header">Settings</h1>
+        <div id="miner-settings-table" class="miner-settings-cards">
+            <div class="miner-settings-card">
+                <div class="miner-settings-card-row">
+                    <h2 class="miner-settings-card-header">Payment threshold</h2>
+                </div>
+                <div class="miner-settings-card-row">
+                    <label for="miner-setings-wallet-input">Mining address:</label>
+                    <input type="text" id="miner-setings-wallet-input" placeholder="Mining address" />
+                </div>
+                <div class="miner-settings-card-row mt-5">
+                    <label for="miner-settings-threshold-input">Payment threshold:</label>
+                    <input type="number" id="miner-settings-threshold-input" placeholder="Payment threshold" />
+                </div>
+                <div class="miner-settings-card-row mt-5">
+                    <label for="miner-settings-ip-input">Latest mining IP:</label>
+                    <input type="text" id="miner-settings-ip-input" placeholder="Latest mining IP" />
+                </div>
+                <div class="miner-settings-card-row mt-25">
+                    <button id="miner-settings-threshold-submit-button" class="nav-button">Save Threshold</button>
+                </div>
+                <div class="miner-settings-card-row mt-25">
+                    <p id="success-threshold" style="display: none;">Threshold saved</p>
+                    <p id="failure-threshold" style="display: none;">Threshold saving failed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Terms of Service -->
+    <section id="terms-of-service" class="table-content" style="display: none;">
+        <h1>Terms of Service</h1>
+        <p><strong>Effective Date:</strong> 01.01.2025</p>
+    
+        <p>Welcome to <strong>MiningPool</strong>, operated by <strong>COMPANY_NAME_HERE</strong> ("Company," "we," "our," or "us").</p>
+        <p>These <strong>Terms of Service</strong> ("Terms") govern your use of the MiningPool website ("Website") and cryptocurrency mining pool ("Services"). By accessing or using our Services, you agree to be bound by these Terms. If you do not agree, please refrain from using our Services.</p>
+    
+        <h2>1. Eligibility</h2>
+        <ul>
+            <li>You must be at least 18 years old to use our Services.</li>
+            <li>You must comply with all applicable laws and regulations related to cryptocurrency mining.</li>
+            <li>We reserve the right to refuse service to anyone at our sole discretion.</li>
+        </ul>
+    
+        <h2>2. Account Registration & Security</h2>
+        <ul>
+            <li>Some features may require you to register an account.</li>
+            <li>You are responsible for maintaining the confidentiality of your credentials.</li>
+            <li>You agree to notify us immediately of any unauthorized account activity.</li>
+        </ul>
+    
+        <h2>3. Use of Services</h2>
+        <ul>
+            <li>You agree to use the Services only for lawful purposes.</li>
+            <li>You must not engage in any fraudulent, malicious, or unauthorized activities.</li>
+            <li>You acknowledge that cryptocurrency mining carries financial and technical risks.</li>
+        </ul>
+    
+        <h2>4. Fees & Payments</h2>
+        <ul>
+            <li>Mining fees range between <strong>0% - 5%</strong>, depending on the cryptocurrency.</li>
+            <li>Payouts are processed at least every <strong>hour</strong>, subject to network and pool conditions.</li>
+            <li>We are not responsible for failed transactions due to incorrect wallet addresses.</li>
+        </ul>
+    
+        <h2>5. Prohibited Activities</h2>
+        <ul>
+            <li>You may not interfere with our network, attempt to hack, or engage in fraudulent mining.</li>
+            <li>Use of botnets, stolen hardware, or other illicit methods is strictly prohibited.</li>
+            <li>Any violation may result in account suspension or termination.</li>
+        </ul>
+    
+        <h2>6. Data & Privacy</h2>
+        <ul>
+            <li>Our <a href="/privacy-policy">Privacy Policy</a> outlines how we collect, use, and store your data.</li>
+            <li>We do not sell or share your personal data with third parties except as required by law.</li>
+            <li>You acknowledge that mining-related data (e.g., hash rates, wallet addresses) are publicly visible.</li>
+        </ul>
+    
+        <h2>7. Service Availability & Liability</h2>
+        <ul>
+            <li>We strive to maintain <strong>99.9% uptime</strong>, but we do not guarantee uninterrupted service.</li>
+            <li>We are not liable for losses due to service disruptions, software errors, or blockchain network issues.</li>
+            <li>You assume all risks associated with cryptocurrency mining, including market volatility and hardware failure.</li>
+        </ul>
+    
+        <h2>8. Termination & Suspension</h2>
+        <ul>
+            <li>We may suspend or terminate your access if you violate these Terms.</li>
+            <li>In cases of fraudulent activity, we reserve the right to withhold or reclaim unpaid mining rewards.</li>
+            <li>We reserve the right to withhold or reclaim unpaid mining rewards from miners that have not withdrawn their rewards for 90 days.</li>
+        </ul>
+    
+        <h2>9. Amendments to Terms</h2>
+        <ul>
+            <li>We may update these Terms periodically.</li>
+            <li>Continued use of the Services after updates constitutes acceptance of the revised Terms.</li>
+        </ul>
+    
+        <h2>10. Governing Law & Dispute Resolution</h2>
+        <ul>
+            <li>These Terms are governed by the laws of <strong>Turkey</strong>.</li>
+            <li>Any disputes will be resolved in the courts of <strong>Istanbul, Turkey</strong>.</li>
+        </ul>
+    
+        <h2>11. Contact Information</h2>
+        <p>For any questions regarding these Terms, please contact us at:</p>
+        <p><strong>Email: </strong>EMAIL_ADDRESS_HERE</p>
+        <p><strong>Website: </strong><a href="DOMAIN_ADDDRESS_HERE" target="_blank">DOMAIN_ADDDRESS_HERE</a></p>
+        <p>By using MiningPool, you acknowledge that you have read, understood, and agree to these Terms.</p>
+    
+    </section>
+
+    <!-- Cookie Polic -->
+    <section id="cookie-policy" class="content" style="display: none;">
+        <h1>Cookie Policy</h1>
+        <p><strong>Effective Date:</strong> 01.01.2025</p>
+    
+        <p>This Cookie Policy explains how <strong>MiningPool</strong> ("Website," "we," "our," or "us") uses cookies and similar technologies on our website (<a href="DOMAIN_ADDDRESS_HERE" target="_blank">www.MiningPool.com</a>) to enhance user experience and improve our Services.</p>
+    
+        <h2>1. What Are Cookies?</h2>
+        <p>Cookies are small text files stored on your device when you visit a website. They help websites recognize your device and remember certain information about your visit, such as preferences and login details.</p>
+    
+        <h2>2. Types of Cookies We Use</h2>
+        <ul>
+            <li><strong>Essential Cookies:</strong> Necessary for website functionality, such as logging in and accessing secure areas.</li>
+            <li><strong>Functional Cookies:</strong> Remember user preferences, such as language settings.</li>
+        </ul>
+    
+        <h2>3. How We Use Cookies</h2>
+        <p>We use cookies to:</p>
+        <ul>
+            <li>Ensure the website functions correctly.</li>
+            <li>Improve user experience and website performance.</li>
+        </ul>
+    
+        <h2>4. Managing Cookies</h2>
+        <p>You can control and delete cookies through your browser settings. Here’s how you can do it in popular browsers:</p>
+        <ul>
+            <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Google Chrome</a></li>
+            <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank">Mozilla Firefox</a></li>
+            <li><a href="https://support.apple.com/en-gb/guide/safari/sfri11471/mac" target="_blank">Apple Safari</a></li>
+            <li><a href="https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank">Microsoft Edge</a></li>
+        </ul>
+
+        <h2>5. Updates to This Policy</h2>
+        <p>We may update this Cookie Policy periodically. Any changes will be posted on this page with the updated date and required information will be delivered.</p>
+    
+        <h2>6. Contact Us</h2>
+        <p>If you have any questions about our Cookie Policy, please contact us at:</p>
+        <p><strong>Email: </strong>EMAIL_ADDRESS_HERE</p>
+        <p><strong>Website: </strong><a href="DOMAIN_ADDDRESS_HERE" target="_blank">DOMAIN_ADDDRESS_HERE</a></p>
+    </section>
+
+    <!-- Privacy Policy -->
+    <section id="privacy-policy" class="content" style="display: none;">
+        <h1>Privacy Policy</h1>
+        <p><strong>Effective Date:</strong> 01.01.2024</p>
+
+        <p>Welcome to <strong>MiningPool</strong> ("Website," "we," "our," or "us"). This Privacy Policy explains how we collect, use, disclose, and protect your personal information when you use our website (<a href="DOMAIN_ADDDRESS_HERE" target="_blank">www.MiningPool.com</a>) and services.</p>
+
+        <h2>1. Information We Collect</h2>
+        <p>We collect the following types of information:</p>
+        <ul>
+            <li><strong>Personal Information:</strong> Name, email address, contact details (if provided during inquiries).</li>
+            <li><strong>Technical Data:</strong> IP address, browser type, operating system, and access timestamps.</li>
+            <li><strong>Mining Data:</strong> Hash rates, wallet addresses, and mining-related activities.</li>
+            <li><strong>Cookies & Tracking Technologies:</strong> See our <a href="/cookie-policy" onclick="navigate('/cookie-policy')" aria-label="Cookie Policy">Cookie Policy</a> for details on how we use cookies.</li>
+        </ul>
+
+        <h2>2. How We Use Your Information</h2>
+        <p>We use collected data for the following purposes:</p>
+        <ul>
+            <li>To provide and improve our mining services.</li>
+            <li>To enhance website security and prevent fraud.</li>
+            <li>To comply with legal and regulatory requirements.</li>
+            <li>To analyze user trends and optimize our platform.</li>
+        </ul>
+
+        <h2>3. Sharing & Disclosure of Information</h2>
+        <p>We do <strong>not</strong> sell or share your personal data except in the following cases:</p>
+        <ul>
+            <li><strong>Legal Compliance:</strong> When required by law or regulatory authorities.</li>
+            <li><strong>Security Protection:</strong> To prevent fraud, cyber threats, or unauthorized activities.</li>
+            <li><strong>Service Providers:</strong> Third-party partners that assist in website hosting, analytics, or security.</li>
+        </ul>
+
+        <h2>4. Data Security</h2>
+        <p>We implement security measures to protect your data, including encryption and secure servers. However, no method of transmission over the Internet is 100% secure.</p>
+
+        <h2>5. Your Rights & Choices</h2>
+        <p>You have the right to:</p>
+        <ul>
+            <li>Request access to the personal data we hold about you.</li>
+            <li>Request deletion or correction of your data.</li>
+            <li>Opt out of certain data collection methods (e.g., cookies).</li>
+        </ul>
+
+        <h2>6. Third-Party Services</h2>
+        <p>Our website may contain links to third-party services (e.g., payment processors, analytics tools). We are not responsible for their privacy policies.</p>
+
+        <h2>7. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with the updated date.</p>
+
+        <h2>8. Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+        <p><strong>Email: </strong>EMAIL_ADDRESS_HERE</p>
+        <p><strong>Website: </strong><a href="DOMAIN_ADDDRESS_HERE" target="_blank">DOMAIN_ADDDRESS_HERE</a></p>
+
+    </section>
+    <!-- footer -->
+    <footer>
+        <div class="copyright">
+            <p>&copy; 2025 <a href="https://hoosat.fi">Hoosat Oy</a>.</p>
+        </div>
+        <div class="legal-links">
+            <ul class="legal-links-list">
+                <li id="terms-of-service-button"><a href="/terms-of-service" aria-label="Terms of Service">Terms of service</a></li>
+                <li id="privacy-policy-button"><a href="/privacy-policy" aria-label="Privacy Policy">Privacy Policy</a></li>
+                <li id="cookie-policy-button"><a href="/cookie-policy" aria-label="Cookie Policy">Cookie Policy</a></li>
+            </ul>
+        </div>
+        <div class="socials">
+            <a href="DISCORD_LINK_HERE" aria-label="Discord invite link"><i class="fa-brands fa-discord"></i></a>
+            <a href="TELEGRAM_LINK_HERE" aria-label="Telegram invite link"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

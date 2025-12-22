@@ -1,0 +1,58 @@
+# Hoosat Miningcore Frontend
+
+This is source available miningcore frontend originally designed to work with Elva miningcore implementation.
+
+## NGINX Configuration
+
+Here is example of http configuration for NGINX. The miningcore frontend is SPA (single page application) and requires to route every non-existent route to `index.html`, because there is no backend code to reply into HTTP queris like `
+
+```
+server {
+    listen 80;
+    server_name your-domain.com;  # Replace with your domain or IP address
+
+    root /path/to/your/spa/build;  # Replace with the path to your built Miningcore Frontend
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;  # If the requested file doesn't exist, serve index.html
+    }
+}
+```
+
+## Adding Coin Data for the Frontend
+
+The `src/listed-coins.js` file contains the data for the coins listed in the pool. Each coin entry includes essential details such as wallet addresses, transaction links, and stratum information. For example:
+
+```javascript
+{
+  coin: "BTC",
+  prefix: ["1", "3", "bc1"],
+  wallet: "https://www.blockchain.com/btc/address/",
+  transaction: "https://www.blockchain.com/btc/tx/",
+  blocks: "https://www.blockchain.com/btc/block/",
+  stratum: [{ location: "Global", domain: "stratum+tcp://btc.pool.com" }],
+}
+```
+
+To add a new coin to the pool, include it in `listed-coins.js` with the appropriate stratum details. You can also add extra coin information, but only the coins found through the API will be displayed on the frontend.
+
+## Adding coin icons to the Frontend
+
+You can add `.png` icon to `img/icon` and convert them with `convert.bash` into `img/webp` or you can add `.webp` directly to `img/webp`.
+
+## Strings to replace
+
+There are few strings you need to replace.
+
+- DOMAIN_ADDDRESS_HERE
+- EMAIL_ADDRESS_HERE
+- DISCORD_LINK_HERE
+- TELEGRAM_LINK_HERE
+- COMPANY_NAME_HERE
+
+If you have permission from Hoosat Oy you can replace the copyright.
+
+## Bug reports
+
+Bug reports can be emailed to toni.lukkaroinen@hoosat.fi or through github issues.
