@@ -1,35 +1,33 @@
-**Copyright (c) 2025 Hoosat Oy**
+Copyright (c) 2025 Hoosat Oy
 
-This Software is licensed under the **Hoosat Source-Available License**.  
+This Software is licensed under the Hoosat Source-Available License.
 By using, modifying, or distributing this Software, you agree to the following terms:
 
-### 1. **Copyleft Requirements**
+1. Copyleft Requirements
 
-- If you modify or distribute this Software, the source code of the modified version **must** be made available under the same terms and conditions as this license.
-- All derivative works based on the Software must retain the **same license** and must be made available for public access under the same terms.
+- If you modify or distribute this Software, the source code of the modified version must be made available under the same terms and conditions as this license.
+- All derivative works based on the Software must retain the same license and must be made available for public access under the same terms.
 
-### 2. **Frontend Attribution**
+2. Frontend Attribution
 
-- This Software must **display** the following attribution in a **prominent and visible location** on the frontend user interface:
-  ```
+- This Software must display the following attribution in a prominent and visible location on the frontend user interface:
   (c) 2025 Hoosat Oy
-  ```
-- The attribution must be **clearly visible** and **cannot be removed** or obscured in any way, unless permission to remove or modify the attribution is granted in writing by Hoosat Oy.
+- The attribution must be clearly visible and cannot be removed or obscured in any way, unless permission to remove or modify the attribution is granted in writing by Hoosat Oy.
 - To request permission for removal or modification of the frontend attribution, you must contact Hoosat Oy directly and obtain explicit, written consent.
 
-### 3. **Geographical Restrictions**
+3. Geographical Restrictions
 
-- This Software is licensed for use, deployment, and distribution **only within the European Union (EU)**.
-- **The use of this Software by individuals or organizations located in Turkey is strictly prohibited.**
+- This Software is licensed for use, deployment, and distribution only within the European Union (EU).
+- The use of this Software by individuals or organizations located in Turkey is strictly prohibited.
 - Any use, distribution, or deployment outside the EU or within Turkey is a violation of this license and will result in the revocation of all rights granted hereunder.
 
-### 4. **Disclaimer of Warranty**
+4. Disclaimer of Warranty
 
-The Software is provided **"AS IS"**, without warranty of any kind, either express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the Software or the use or other dealings in the Software.
+The Software is provided "AS IS", without warranty of any kind, either express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose, and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the Software or the use or other dealings in the Software.
 
-### 5. **License Violation**
+5. License Violation
 
-- Any violation of the terms of this license **immediately revokes all rights granted to you under this license**.
+- Any violation of the terms of this license immediately revokes all rights granted to you under this license.
 - Hoosat Oy reserves the right to take appropriate legal action in the event of a breach of this license.
 
 By using or distributing this Software, you acknowledge that you have read, understood, and agree to comply with the terms of this license.
