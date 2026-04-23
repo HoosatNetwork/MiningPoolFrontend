@@ -1,4 +1,4 @@
-const api_domain = "https://pools4mining.com";
+const api_domain = "http://zenithpool.net";
 
 const localStorageSetItem = (key, value) => {
   const timestamp = new Date().toISOString();
@@ -36,7 +36,7 @@ const getCryptoPrices = async (coins = ["bitcoin", "ethereum", "litecoin"], curr
       `https://api.coingecko.com/api/v3/simple/price?ids=${coins.join(",")}&vs_currencies=${currency}`,
       {
         // mode: "no-cors",
-      }
+      },
     );
     if (response.ok) {
       prices = await response.json();
@@ -161,12 +161,12 @@ const getBlocksV1 = async (poolid) => {
 const getBlocks = async (poolid, page = 0, pageSize = 15, state = "NULL") => {
   let blocks = localStorageGetItem(
     `/api/v2/pools/${poolid}/blocks?page=${page}&pageSize=${pageSize}&state=${state}`,
-    1
+    1,
   );
   if (blocks === null) {
     try {
       const response = await fetch(
-        `${api_domain}/api/v2/pools/${poolid}/blocks?page=${page}&pageSize=${pageSize}&state=${state}`
+        `${api_domain}/api/v2/pools/${poolid}/blocks?page=${page}&pageSize=${pageSize}&state=${state}`,
       );
       if (!response.ok) {
         // Handle non-OK responses (e.g., 404, 500) by returning null
@@ -246,12 +246,12 @@ const getMinerBlocksV1 = async (poolid, wallet) => {
 const getMinerBlocks = async (poolid, wallet, page = 0, pageSize = 15, state = "NULL") => {
   let blocks = localStorageGetItem(
     `/api/v2/pools/${poolid}/miners/${wallet}/blocks?page=${page}&pageSize=${pageSize}&state=${state}`,
-    1
+    1,
   );
   if (blocks === null) {
     try {
       const response = await fetch(
-        `${api_domain}/api/v2/pools/${poolid}/miners/${wallet}/blocks?page=${page}&pageSize=${pageSize}&state=${state}`
+        `${api_domain}/api/v2/pools/${poolid}/miners/${wallet}/blocks?page=${page}&pageSize=${pageSize}&state=${state}`,
       );
       if (!response.ok) {
         // Handle non-OK responses (e.g., 404, 500) by returning null

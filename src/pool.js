@@ -6,22 +6,27 @@ let blocksInterval = null;
 let paymentsInterval = null;
 
 const showFlag = (countryName) => {
-  const countryFlagMap = {
-    Finland: "fi",
-    Türkiye: "tr",
-    France: "fr",
-    Italy: "it",
-    Europe: "eu",
-    US: "us",
-    Asia: "sg",
-    Singapore: "sg",
-  };
-  const flagClass = countryFlagMap[countryName] || countryName;
-  if (flagClass) {
-    return '<span class="fi fi-' + flagClass + '"></span>';
-  } else {
-    console.log("Flag not found!");
+  if (!countryName || typeof countryName !== "string") {
+    return '<span class="fi fi-xx"></span>'; // fallback flag
   }
+  const normalize = (str) => str.trim().toLowerCase().replace(/\s+/g, "");
+
+  const countryFlagMap = {
+    finland: "fi",
+    türkiye: "tr",
+    france: "fr",
+    italy: "it",
+    europe: "eu",
+    us: "us",
+    asia: "sg",
+    singapore: "sg",
+    newzealand: "nz",
+  };
+
+  const normalized = normalize(countryName);
+
+  const flagClass = countryFlagMap[normalized] || normalized;
+  return '<span class="fi fi-' + flagClass + '"></span>';
 };
 
 const clearIntervals = () => {
@@ -70,7 +75,7 @@ const initPool = async () => {
     },
     async () => {
       clearIntervals;
-    }
+    },
   );
   $("#open-connect-button").on("click", () => {
     $("#statistics").hide();
@@ -286,8 +291,8 @@ const showMiners = async (pool, coin) => {
       <div class="miner-card">
         <div class="miner-address">
           <a href="javascript:void(0);" onclick="navigate('/miner?pool=${pool}&miner=${
-      minersResponse[i].miner
-    }&coin=${coin}')">
+            minersResponse[i].miner
+          }&coin=${coin}')">
             ${minersResponse[i].miner.slice(0, 32)}...${minersResponse[i].miner.slice(-8)}
           </a>
         </div>
@@ -371,8 +376,7 @@ const showPayments = async (pool) => {
       <div class="payments-card"> 
         <div class="payments-transaction">
           <a href="${paymentsResponse[i].transactionInfoLink}">
-            ${paymentsResponse[i].transactionConfirmationData.slice(0, 32)}
-            ...${paymentsResponse[i].transactionConfirmationData.slice(-4)}
+            ${paymentsResponse[i].transactionConfirmationData.slice(0, 32)}...${paymentsResponse[i].transactionConfirmationData.slice(-4)}
           </a>
         </div>
         <div class="payments-address">
@@ -422,7 +426,7 @@ const showConnect = async (pool, coin) => {
   $("#connect-ports-table").empty();
 
   $("#pool-address").html(
-    `<a href="${coinSettings?.wallet}${poolResponse.pool.address}">${poolResponse.pool.address}</a>`
+    `<a href="${coinSettings?.wallet}${poolResponse.pool.address}">${poolResponse.pool.address}</a>`,
   );
   console.log(poolResponse);
   for (const port in poolResponse.pool.ports) {
