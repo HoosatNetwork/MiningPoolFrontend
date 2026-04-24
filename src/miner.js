@@ -371,14 +371,14 @@ const showMinerSettings = async (pool, miner) => {
     $("#miner-settings-threshold-input").val(settingsResponse.paymentThreshold);
   }
   $("#miner-settings-ip-input").val();
-  $("#miner-settings-threshold-submit-button").on("click", () => {
+  $("#miner-settings-threshold-submit-button").on("click", async () => {
     var wallet = $("#miner-setings-wallet-input").val();
     var threshold = $("#miner-settings-threshold-input").val();
     var ip = $("#miner-settings-ip-input").val();
-    var success = setMinerPaymentThreshold(pool, wallet, threshold, ip);
+    var success = await setMinerPaymentThreshold(pool, wallet, threshold, ip);
     if (success === true) {
-      $("#failure-threshold").hide();
       $("#success-threshold").show();
+      $("#failure-threshold").hide();
     } else {
       $("#success-threshold").hide();
       $("#failure-threshold").show();

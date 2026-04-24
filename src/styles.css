@@ -293,7 +293,7 @@ footer {
 .table-content .block-card,
 .table-content .miner-block-card,
 .table-content .payments-card {
-  background: linear-gradient(180deg, rgba(6, 40, 41, 0.95), rgba(11, 74, 74, 0.96));
+  background: linear-gradient(135deg, var(--zenith-teal), #027b79);
   color: var(--zenith-white);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 18px;
@@ -409,7 +409,8 @@ footer {
 button {
   border: 0;
   color: var(--zenith-white);
-  background: linear-gradient(135deg, var(--zenith-teal), #027b79);
+  
+  background: linear-gradient(180deg, rgba(6, 40, 41, 0.95), rgba(11, 74, 74, 0.96));
   padding: 0.95rem 1.4rem;
   font-family: inherit;
   font-size: 0.98rem;
@@ -720,7 +721,7 @@ footer {
   margin-bottom: 28px;
   padding: 20px;
   border-radius: 24px;
-  background: rgba(6, 40, 41, 0.96);
+  background: var(--zenith-teal);
   color: rgba(254, 254, 254, 0.78);
   border: 1px solid rgba(3, 156, 154, 0.18);
   box-shadow: 0 18px 42px rgba(6, 40, 41, 0.18);
